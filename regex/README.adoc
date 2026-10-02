@@ -6,7 +6,7 @@
 
 == Globs (10 points)
 
-Save your answers to the `answers.properties` file. Each answer is a glob pattern which describes the required files.
+Save your answers to the `answer.properties` file. Each answer is a glob pattern which describes the required files.
 
 IMPORTANT: The solution must be a *single* glob pattern!
 
@@ -22,7 +22,7 @@ Files stored in the `logs-2025` directory with `.txt` extension.
 
 === Task 3 (4 points)
 
-Files with `.txt` extension which are stored in a directory `B13-60_` or `B13-61_` (`_` is any symbol) that is `data`{empty}'s subdirectory.
+Files with `.txt` extension which are stored in a directory `B13-60_` or `B13-61_` (`_` is any symbol) that is a subdirectory of the `data` directory.
 
 == Sed & grep (13 points)
 
@@ -43,9 +43,9 @@ You are provided with a log file. The records follow this format:
 
 The file may contain malformed records: you must ignore them. The path to the file is passed via `TEST_DATA` env variable.
 
-TIP: You don't have to validate date's or time's correctness (e.g. `8888-88-88` is a valid date).
+TIP: You don't have to validate the correctness of the date and time (e.g. `8888-88-88` is a valid date).
 
-Implement the `get_class` function which prints all _CLASSNAME_{empty}s of all valid `INFO` logs.
+Implement the `get_class` function which prints all _CLASSNAME_ of all valid `INFO` logs.
 
 Implement the `get_ip` function which prints all IPs mentioned in the valid logs.
 
@@ -62,7 +62,7 @@ Implement the `get_name` function: it takes a JSON string which follows this for
   "repo": {
     "id": ..,
     "name": ..,
-    "nam": [ { "name": .. }, .. ]
+    "nam": [ { "name": .. }, .. ],
     "owner": {
       "name": ..,
       "id": ..
@@ -71,7 +71,7 @@ Implement the `get_name` function: it takes a JSON string which follows this for
 }
 ----
 
-Everything but `id` is a string, `id` is an integer. As JSON spec allows, space characters may or may not appear. Moreover, the fields might be rearranged: there are no order guarantees.
+All values except `id` are strings, `id` is an integer. As JSON spec allows, space characters may or may not appear. Moreover, the fields might be rearranged: there are no order guarantees.
 
 The function must print `owner`{empty}'s name. E.g. `... "owner": {"name":"qwe"...` must output a `qwe` string.
 
@@ -82,6 +82,8 @@ Java solution: `Regex.java`
 
 IMPORTANT: You must use stdlib's regexes. No direct data manipulation is allowed!
 
+NOTE: We use C++ 23 and Java 25
+
 === Task 1 (3 points)
 
 Implement the `parseLog` function. You are provided with an unstructured string, the only guarantees are:
@@ -90,12 +92,12 @@ Implement the `parseLog` function. You are provided with an unstructured string,
 * name is preceded by `nm:` and is double-quoted
 * both attributes consist of word symbols
 
-You must return an optional of `NAME-SURNAME` if possible. Otherwise, return the empty optional. E.g. `qwe sn:"u" nm:"o" po` must be mapped to `Optional.of("o-u")` while `qwe sn:"u" nm:"opo` to `Optional.empty()`.
+You must return an optional of `NAME-SURNAME` if possible. Otherwise, return the empty optional. E.g. `qwe sn:"u" nm:"o" po` must be mapped to `Optional.of("o-u")` while `qwe sn:"u" nm:"opo` to `Optional.empty()` (`std::nullopt`).
 
 
 === Task 2 (4 points)
 
-Implement the `getNumbers` function. It takes a multi-line string and returns a list of European numbers, mentioned in the input.
+Implement the `getNumbers` function. It takes a multi-line string and returns a list of European numbers mentioned in the input.
 
 [TIP]
 ====
@@ -114,6 +116,7 @@ A European number has the format `+CODE NUMBER`:
 * How to match a pattern over a multi-line string in `grep`?
 * How to extract a substring using regexes?
 * How to mark word borders?
+* Why is using `sed` and `grep` to parse JSON a bad idea?
 
 == Copyright
 
