@@ -6,7 +6,7 @@
 
 == Globs (10 points)
 
-Save your answers to the `answers.properties` file. Each answer is a glob pattern which describes the required files.
+Save your answers to the `answer.properties` file. Each answer is a glob pattern which describes the required files.
 
 IMPORTANT: The solution must be a *single* glob pattern!
 
