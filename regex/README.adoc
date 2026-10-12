@@ -102,7 +102,7 @@ Implement the `getNumbers` function. It takes a multi-line string and returns a 
 A European number has the format `+CODE NUMBER`:
 
 * `CODE`  --  either `7` or two/three digits that start with `3` or `4`
-* `NUMBER`  --  from eight to nine digits
+* `NUMBER`  --  from eight to ten digits
 * `CODE` and `NUMBER` might be separated by a space
 ====
 
